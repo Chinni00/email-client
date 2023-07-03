@@ -1,6 +1,7 @@
 import { createSlice,configureStore } from "@reduxjs/toolkit";
 
-const outboxState = {emails:[],token:localStorage.getItem('token')}
+
+const outboxState = {emails:[],inBox:[],token:localStorage.getItem('token'),uniqueId:localStorage.getItem('uniqueId'),myMail:localStorage.getItem('email')}
 
 const outBoxSlice = createSlice({
     name:'outbox',
@@ -12,7 +13,17 @@ const outBoxSlice = createSlice({
                   
             setToken (state,action){
               state.token = action.payload
-            }
+            },
+            setLocalId(state,action){
+                state.uniqueId=action.payload
+            },
+            setMymail (state,action){
+                state.myMail = action.payload
+            },
+            setInbox (state,action){
+                state.inBox=action.payload
+            },
+           
               
         }
     }
