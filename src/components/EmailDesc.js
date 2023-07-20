@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import MainNav from "./MainNav";
+import Navbar from "./Navbar";
 
 
 
@@ -14,6 +16,9 @@ const EmailDesc = () => {
 
    
   return (
+    <>
+    <MainNav />
+    <Navbar />
    <center>
      <div className="card w-50 shadow mt-5" style={{minHeight:'70vh'}}>
       <div className="b-5 mb-4">
@@ -27,6 +32,7 @@ const EmailDesc = () => {
       </div>
     </div>
    </center>
+   </>
   );
 };
 

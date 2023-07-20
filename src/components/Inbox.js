@@ -12,6 +12,7 @@ const Inbox = () => {
   const myMail = useSelector(state=>state.myMail)
   const myUserName = myMail.split('@')[0]
   const inbox = useSelector(state=>state.inBox)
+
   const dispatch= useDispatch();
   const navigate = useNavigate()
 
@@ -21,9 +22,7 @@ const Inbox = () => {
         dispatch(outboxActions.setInbox(data))
     }).catch(err=>console.log(err))
    } 
-   useEffect(()=>{
-     fetchInbox();
-   },[dispatch])
+ 
    console.log('inbox',inbox)
 
    const deleteHandler =(id)=>{
@@ -37,16 +36,26 @@ const Inbox = () => {
      }
     }).then(res=>res.json()).catch(err=>console.log(err))
  }
+ useEffect(()=>{
+    fetchInbox();
+  },[dispatch]);
 
+  
  
   return (
     <>
     <MainNav />
     <Navbar />
-    <div>
+    <div className=''>
+       <center>
+       <div className=''>
         <h1>Inbox</h1>
-        {inbox == null && inbox == undefined && <p>No mails sent</p>}
-      { inbox && (
+        </div>
+       </center>
+       
+        
+        
+      {inbox === null || inbox === undefined ? (<p>You didn't receive any mail</p>) : (
         <center className="w-75 float-end mt-3">
           <hr></hr>
           <div className="card me-3 pt-2" style={{ minHeight: "90vh" }}>

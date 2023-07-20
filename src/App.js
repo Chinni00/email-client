@@ -21,9 +21,9 @@ function App() {
        <Route path='/' element={<SignUp />} />
        <Route path='/inbox' element={<Inbox />} />
        <Route path='/inboxDesc/:id' element={<InboxDesc />} />
-   { token!==null && token &&  <Route path ='/outbox' element={<Outbox />} />}
+   <Route path ='/outbox' element={<Outbox />} />
       <Route path='/welcome' element={<Welcome />} />
-   {  token!==null &&  <Route path='/emailDesc/:id' element={<EmailDesc />} />}
+   <Route path='/emailDesc/:id' element={<EmailDesc />} />
      </Routes>
     </div>
   );
